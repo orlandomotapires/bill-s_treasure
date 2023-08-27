@@ -52,6 +52,9 @@ while True:
     treasure_i = random.randint(1, N-2)
     treasure_j = random.randint(1, M-2)
 
+def direction_valid(direction, left, right, up, down):
+    return (direction == "left" and left != None) or (direction == "right" and right != None) or (direction == "up" and up != None) or (direction == "down" and down != None)
+
 class GridWorld(tk.Tk):
     def __init__(self, N, M, L, grid, decision_callback=None):
         tk.Tk.__init__(self)
@@ -114,6 +117,7 @@ class GridWorld(tk.Tk):
         down = None
         left = None
         right = None
+
         if self.bill_i > 0 and self.grid[self.bill_i-1][self.bill_j] != "wall":
             up = math.sqrt((self.bill_i-1 - self.treasure_i)**2 + (self.bill_j - self.treasure_j)**2)
         if self.bill_i < self.N-1 and self.grid[self.bill_i+1][self.bill_j] != "wall":
@@ -124,12 +128,22 @@ class GridWorld(tk.Tk):
             right = math.sqrt((self.bill_i - self.treasure_i)**2 + (self.bill_j+1 - self.treasure_j)**2)
 
         direction = self.decision_callback(up, down, left, right)
+        
+        while not direction_valid(direction, left, right, up, down):
+            direction = self.decision_callback(up, down, left, right)
+
+        if self.number_decisions >= 30:
+            direction = "giveup"
+
+        print(f"num_decisions: {self.number_decisions}")
+
         self.number_decisions  += 1
 
         if direction == "giveup":
-            #messagebox.showinfo("Not today", "Bill gave up!")
+            messagebox.showinfo("Not today", "Bill gave up!")
             self.quit()        
             return  
+        
         elif direction == "up" and up is not None:
             self.bill_i -= 1
         elif direction == "down" and down is not None:
@@ -139,7 +153,7 @@ class GridWorld(tk.Tk):
         elif direction == "right" and right is not None:
             self.bill_j += 1
         else:
-            #messagebox.showinfo("Error", "Invalid direction returned by decision_callback")
+            messagebox.showinfo("Error", "Invalid direction returned by decision_callback")
             self.quit()
             return
 
@@ -167,7 +181,6 @@ def example_callback(up, down, left, right):
 
     return random.choice(directions)
 
-        
 app = GridWorld(N, M, L, grid, example_callback)
 #app.bind("<Left>", lambda event: app.move_bill("left"))
 #app.bind("<Right>", lambda event: app.move_bill("right"))
