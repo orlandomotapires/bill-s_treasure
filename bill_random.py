@@ -3,7 +3,6 @@ import math
 import tkinter as tk
 from tkinter import messagebox
 
-
 N = 10
 M = 10
 L = 5
@@ -166,7 +165,7 @@ def example_callback(up, down, left, right):
     directions = ["up", "down", "left", "right"]
     distances = [up, down, left, right]
 
-    return random.choice(valid_directions)
+    return random.choice(directions)
 
         
 app = GridWorld(N, M, L, grid, example_callback)
