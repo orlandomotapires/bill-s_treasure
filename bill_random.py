@@ -62,7 +62,7 @@ class GridWorld(tk.Tk):
         self.decision_callback = decision_callback
         self.number_decisions = 0
         self.found_treasure = False
-        self.max_decisions = 500
+        self.max_decisions = 200
 
         self.canvas = tk.Canvas(self, width=self.M*40, height=self.N*40)
         self.canvas.pack()
@@ -125,7 +125,7 @@ class GridWorld(tk.Tk):
 
         direction = " "
         
-        if self.number_decisions >= 200 or impossible(left, right, up, down):
+        if self.number_decisions >= self.max_decisions or impossible(left, right, up, down):
             direction = "giveup"
 
         if direction != "giveup":
@@ -136,7 +136,7 @@ class GridWorld(tk.Tk):
         self.number_decisions  += 1
 
         if direction == "giveup":
-            messagebox.showinfo("Not today", "Bill gave up!")
+            messagebox.showinfo("Bill foi de Vasco, deixe seu F")
             self.quit()        
             return  
         
@@ -154,11 +154,11 @@ class GridWorld(tk.Tk):
             return
 
         if self.bill_i == self.treasure_i and self.bill_j == self.treasure_j:
-            messagebox.showinfo("Congratulations", "Bill found the treasure!")
+            messagebox.showinfo("Bill achou o tesoro :)", "Bill é craque de bola")
             self.found_treasure = True
             self.quit()
         elif self.number_decisions >= self.max_decisions:
-            messagebox.showinfo("Time's up", "Maximum number of decisiosn reached, sorry!")
+            messagebox.showinfo("Bill não achou o tesoro :)", "Esqueca Bill, você não foi capaz")
             self.quit()
         else:
             self.canvas.delete("all")
@@ -197,16 +197,17 @@ def example_callback(up, down, left, right):
         return directions[dis]
     else:
         if Min == Dir[-3] or decisao_foracada:
-            num_atu += 1
-            print("Tomei uma decisao aleatoria")
-            decisao = random_decision(left, right, up, down)
+            num_atu += 1      
+            decisao = random_decision(left, right, up, down, directions)
+
+            print("Tomei uma decisao aleatoria!")
             print(f"Minha decisao: {decisao}")
+            
             return decisao
     return directions[dis]
 
 
-def random_decision(left, right, up, down):
-    directions = ["up", "down", "left", "right"]
+def random_decision(left, right, up, down, directions):
     direction = random.choice(directions)
 
     while not direction_valid(direction, left, right, up, down):
