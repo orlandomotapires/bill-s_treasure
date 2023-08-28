@@ -52,9 +52,6 @@ while True:
     treasure_i = random.randint(1, N-2)
     treasure_j = random.randint(1, M-2)
 
-def direction_valid(direction, left, right, up, down):
-    return (direction == "left" and left != None) or (direction == "right" and right != None) or (direction == "up" and up != None) or (direction == "down" and down != None)
-
 class GridWorld(tk.Tk):
     def __init__(self, N, M, L, grid, decision_callback=None):
         tk.Tk.__init__(self)
@@ -111,7 +108,6 @@ class GridWorld(tk.Tk):
         x2, y2 = x1+40, y1+40
         self.canvas.create_rectangle(x1+15, y1+15, x2-15, y2-15, fill="yellow")
         
-        
     def make_decision(self):
         up = None
         down = None
@@ -127,13 +123,13 @@ class GridWorld(tk.Tk):
         if self.bill_j < self.M-1 and self.grid[self.bill_i][self.bill_j+1] != "wall":
             right = math.sqrt((self.bill_i - self.treasure_i)**2 + (self.bill_j+1 - self.treasure_j)**2)
 
-        direction = self.decision_callback(up, down, left, right)
+        direction = " "
         
-        while not direction_valid(direction, left, right, up, down):
-            direction = self.decision_callback(up, down, left, right)
-
-        if self.number_decisions >= 30:
+        if self.number_decisions >= 200 or impossible(left, right, up, down):
             direction = "giveup"
+
+        if direction != "giveup":
+            direction = self.decision_callback(up, down, left, right)
 
         print(f"num_decisions: {self.number_decisions}")
 
@@ -158,11 +154,11 @@ class GridWorld(tk.Tk):
             return
 
         if self.bill_i == self.treasure_i and self.bill_j == self.treasure_j:
-            #messagebox.showinfo("Congratulations", "Bill found the treasure!")
+            messagebox.showinfo("Congratulations", "Bill found the treasure!")
             self.found_treasure = True
             self.quit()
         elif self.number_decisions >= self.max_decisions:
-            #messagebox.showinfo("Time's up", "Maximum number of decisiosn reached, sorry!")
+            messagebox.showinfo("Time's up", "Maximum number of decisiosn reached, sorry!")
             self.quit()
         else:
             self.canvas.delete("all")
@@ -175,11 +171,54 @@ class GridWorld(tk.Tk):
 # As parameters you receive the euclidean distance
 # to the goal from each neighborhood position
 # if the position is a wall it will return None as distance
+
+Dir = []
 def example_callback(up, down, left, right):
     directions = ["up", "down", "left", "right"]
     distances = [up, down, left, right]
 
-    return random.choice(directions)
+    num_max_al = 4
+    num_atu = 0 
+    decisao_foracada = False
+
+    if num_atu == num_max_al:
+        num_atu = 0
+    if num_atu < num_max_al and num_atu != 0:
+        decisao_foracada = True
+
+    Min = 9999
+    for i in distances:
+        if i != None:
+            Min = min(Min, i)
+    
+    dis = distances.index(Min)
+    Dir.append(Min)
+    if len(Dir) < 3:
+        return directions[dis]
+    else:
+        if Min == Dir[-3] or decisao_foracada:
+            num_atu += 1
+            print("Tomei uma decisao aleatoria")
+            decisao = random_decision(left, right, up, down)
+            print(f"Minha decisao: {decisao}")
+            return decisao
+    return directions[dis]
+
+
+def random_decision(left, right, up, down):
+    directions = ["up", "down", "left", "right"]
+    direction = random.choice(directions)
+
+    while not direction_valid(direction, left, right, up, down):
+        direction = random.choice(directions)
+
+    return direction
+
+def direction_valid(direction, left, right, up, down):
+    return (direction == "left" and left != None) or (direction == "right" and right != None) or (direction == "up" and up != None) or (direction == "down" and down != None)
+
+def impossible(left, right, up, down):
+    return left == None and right == None and up == None and down == None
 
 app = GridWorld(N, M, L, grid, example_callback)
 #app.bind("<Left>", lambda event: app.move_bill("left"))
@@ -200,4 +239,3 @@ else:
   score += reward_no_treasure
   
 print(score)   
-        
