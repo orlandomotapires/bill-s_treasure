@@ -31,9 +31,11 @@ python --version
 python -m tkinter -h
 ```
 
+Caso o tkinter não esteja já instalado, o comando `sudo apt install python3-tk` (para o Linux) deve resolver.
+
 ## Como usar
 
-O algoritmo presente no arquivo `bill_random.py` já está desenvolvido com uma lógica simplória que desenvolvemos, edite o `bill_temp.py` para realizar sua própria solução!
+O algoritmo presente no arquivo `bill_found_the_treasure.py` já está desenvolvido com uma lógica simplória que desenvolvemos, edite o `bill_temp.py` para realizar sua própria solução!
 
 1. Clone este repositório para o seu ambiente local.
 2. Implemente a lógica para encontrar o tesouro no arquivo `bill_temp.py`.
