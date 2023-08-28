@@ -1,6 +1,6 @@
 # Encontre o Tesouro de Bill
 
-Este é um desafio de programação proposto pelo professor Dr. José Grimaldo da Silva Filho. Sua missão é ajudar Bill a encontrar o seu tesouro em um terreno 10x10, mas com um desafio adicional: você não pode utilizar algoritmos que façam uso de memória, tais como DFS, BFS, Dijkstra ou A*.
+Este é um desafio de programação proposto pelo professor Dr. José Grimaldo da Silva Filho, todo material e código usado como base foram fornecidos por ele. Sua missão é ajudar Bill a encontrar o seu tesouro em um terreno 10x10, mas com um desafio adicional: você não pode utilizar algoritmos que façam uso de memória, tais como DFS, BFS, Dijkstra ou A*.
 
 ## Descrição
 
