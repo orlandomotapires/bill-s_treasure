@@ -1,6 +1,6 @@
 # Encontre o Tesouro do Bill
 
-Este é um desafio de programação em que você ajudará o Bill a encontrar o seu tesouro em um grid 10x10, sem o uso de algoritmos que utilizem memória (DFS, BFS, Djiskstra, A estrela).
+Este é um desafio de programação proposto pelo professor Dr. José Grimaldo da Silva Filho, em que você ajudará o Bill a encontrar o seu tesouro em um grid 10x10, sem o uso de algoritmos que utilizem memória (DFS, BFS, Djiskstra, A estrela).
 
 ## Descrição
 
@@ -12,6 +12,8 @@ Bill perdeu seu tesouro em um terreno de 10x10 metros e precisa de sua ajuda par
 - Você possui um laser que indica a distancia euclidiana de cada casa ao redor de Bill para o tesouro, você pode usar esse laser!
 
 Sua tarefa é implementar um algoritmo que encontre o tesouro do Bill o mais rápido possível, seguindo as regras mencionadas acima.
+
+Obs: O slide `BillExercise.odt.pdf` do professor Grilmando traz algumas outras informações detalhadas sobre o problema proposto.
 
 ## Como usar
 
