@@ -1,6 +1,6 @@
 # Encontre o Tesouro de Bill
 
-Este é um desafio de programação proposto pelo professor Dr. José Grimaldo da Silva Filho, em que você ajudará o Bill a encontrar o seu tesouro em um grid 10x10, sem o uso de algoritmos que utilizem memória (DFS, BFS, Djiskstra, A estrela).
+Este é um desafio de programação proposto pelo professor Dr. José Grimaldo da Silva Filho, em que você ajudará o Bill a encontrar o seu tesouro em um grid 10x10, sem o uso de algoritmos que utilizem memória (DFS, BFS, Djiskstra, A*).
 
 ## Descrição
 
