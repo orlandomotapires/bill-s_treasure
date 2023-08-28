@@ -1,19 +1,35 @@
 # Encontre o Tesouro de Bill
 
-Este é um desafio de programação proposto pelo professor Dr. José Grimaldo da Silva Filho, em que você ajudará o Bill a encontrar o seu tesouro em um grid 10x10, sem o uso de algoritmos que utilizem memória (DFS, BFS, Djiskstra, A*).
+Este é um desafio de programação proposto pelo professor Dr. José Grimaldo da Silva Filho. Sua missão é ajudar Bill a encontrar o seu tesouro em um terreno 10x10, mas com um desafio adicional: você não pode utilizar algoritmos que façam uso de memória, tais como DFS, BFS, Dijkstra ou A*.
 
 ## Descrição
 
-Bill perdeu seu tesouro em um terreno de 10x10 metros e precisa de sua ajuda para encontrá-lo. No entanto, existem algumas restrições:
-- Você não pode usar algoritmos que façam uso de memória.
-- Você pode escolher um ponto no grid (x, y) como seu ponto de partida.
-- Você pode se mover apenas para cima, para baixo, para a esquerda ou para a direita.
-- O tesouro está escondido em uma posição aleatória do grid.
-- Você possui um laser que indica a distancia euclidiana de cada casa ao redor de Bill para o tesouro, você pode usar esse laser!
+Bill perdeu seu tesouro em um terreno de 10x10 metros e ele conta com a sua sagacidade para resgatá-lo. No entanto, existem algumas restrições a serem consideradas:
+- A utilização de algoritmos que utilizem memória está proibida.
+- Você começa escolhendo um ponto (x, y) no grid como ponto de partida.
+- Você pode mover Bill apenas para cima, para baixo, para a esquerda ou para a direita.
+- O tesouro está escondido em algum lugar aleatório no grid.
+- Você possui um laser que indica a distância euclidiana de cada casa ao redor de Bill até o tesouro. Você pode usar esse laser!
 
-Sua tarefa é implementar um algoritmo que encontre o tesouro do Bill o mais rápido possível, seguindo as regras mencionadas acima.
+Sua tarefa é criar um algoritmo eficiente que encontre o tesouro de Bill o mais rápido possível, aderindo às regras mencionadas acima.
 
-Obs: O slide `BillExercise.odt.pdf` do professor Grilmando traz algumas outras informações detalhadas sobre o problema proposto.
+**Observação:** Para obter informações mais detalhadas sobre o problema proposto, consulte o arquivo `BillExercise.odt.pdf` fornecido pelo Professor Grimaldo.
+
+## Instalação das Dependências
+
+Antes de começar, certifique-se de ter instalado as seguintes dependências Python:
+
+1. Nenhum pacote de terceiros é necessário para este desafio, pois ele utiliza apenas as bibliotecas padrão do Python.
+
+Você pode seguir as etapas abaixo para verificar se as dependências necessárias estão presentes:
+
+```bash
+# Verifique se o Python está instalado
+python --version
+
+# Verifique se o pacote tkinter está disponível (biblioteca GUI do Python)
+python -m tkinter -h
+```
 
 ## Como usar
 
