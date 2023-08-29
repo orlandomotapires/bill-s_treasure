@@ -6,7 +6,7 @@ from tkinter import messagebox
 N = 10
 M = 10
 L = 5
-
+ 
 grid = []
 
 def generate_grid(N, M):
