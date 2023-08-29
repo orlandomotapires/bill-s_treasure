@@ -136,7 +136,7 @@ class GridWorld(tk.Tk):
         self.number_decisions  += 1
 
         if direction == "giveup":
-            messagebox.showinfo("Bill foi de Vasco, deixe seu F")
+            messagebox.showinfo("Vai da nao", "Bill foi de Vasco, deixe seu F")
             self.quit()        
             return  
         
