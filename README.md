@@ -1,42 +1,42 @@
-# Encontre o Tesouro de Bill
+# Find Bill's Treasure
 
-Este é um desafio de programação proposto pelo professor Dr. José Grimaldo da Silva Filho, todo material e código usado como base foram fornecidos por ele. Sua missão é ajudar Bill a encontrar o seu tesouro em um terreno 10x10, mas com um desafio adicional: você não pode utilizar algoritmos que façam uso de memória, tais como DFS, BFS, Dijkstra ou A*.
+This is a programming challenge proposed by Professor Dr. José Grimaldo da Silva Filho. All the material and base code were provided by him. Your mission is to help Bill find his treasure in a 10x10 terrain, but with an additional challenge: you are not allowed to use memory-intensive algorithms such as DFS, BFS, Dijkstra, or A*.
 
-## Descrição
+## Description
 
-Bill perdeu seu tesouro em um terreno de 10x10 metros e ele conta com a sua sagacidade para resgatá-lo. No entanto, existem algumas restrições a serem consideradas:
-- A utilização de algoritmos que utilizem memória está proibida.
-- Você começa escolhendo um ponto (x, y) no grid como ponto de partida.
-- Você pode mover Bill apenas para cima, para baixo, para a esquerda ou para a direita.
-- O tesouro está escondido em algum lugar aleatório no grid.
-- Você possui um laser que indica a distância euclidiana de cada casa ao redor de Bill até o tesouro. Você pode usar esse laser!
+Bill has lost his treasure in a 10x10 meter terrain and is counting on your cleverness to retrieve it. However, there are some restrictions to be considered:
+- The use of memory-intensive algorithms is prohibited.
+- You start by choosing a point (x, y) on the grid as the starting point.
+- You can only move Bill up, down, left, or right.
+- The treasure is hidden at some random location on the grid.
+- You have a laser that indicates the Euclidean distance from each cell around Bill to the treasure. You can use this laser!
 
-Sua tarefa é criar um algoritmo eficiente que encontre o tesouro de Bill o mais rápido possível, aderindo às regras mencionadas acima.
+Your task is to create an efficient algorithm that finds Bill's treasure as quickly as possible, adhering to the rules mentioned above.
 
-**Observação:** Para obter informações mais detalhadas sobre o problema proposto, consulte o arquivo `BillExercise.odt.pdf` fornecido pelo Professor Grimaldo.
+**Note:** For more detailed information on the proposed problem, consult the `BillExercise.odt.pdf` file provided by Professor Grimaldo.
 
-## Instalação das Dependências
+## Installing Dependencies
 
-Antes de começar, certifique-se de ter instalado as seguintes dependências Python:
+Before starting, make sure to install the following Python dependencies:
 
-1. Nenhum pacote de terceiros é necessário para este desafio, pois ele utiliza apenas as bibliotecas padrão do Python.
+1. No third-party packages are required for this challenge as it only uses Python's standard libraries.
 
-Você pode seguir as etapas abaixo para verificar se as dependências necessárias estão presentes:
+You can follow the steps below to check if the necessary dependencies are present:
 
 ```bash
-# Verifique se o Python está instalado
+# Check if Python is installed
 python --version
 
-# Verifique se o pacote tkinter está disponível (biblioteca GUI do Python)
+# Check if the tkinter package is available (Python's GUI library)
 python -m tkinter -h
 ```
 
-Caso o tkinter não esteja já instalado, o comando `sudo apt install python3-tk` (para o Linux) deve resolver.
+If tkinter is not already installed, the command `sudo apt install python3-tk` (for Linux) should solve it.
 
-## Como usar
+## How to Use
 
-O algoritmo presente no arquivo `bill_found_the_treasure.py` já está desenvolvido com uma lógica simplória que desenvolvemos, edite o `bill_temp.py` para realizar sua própria solução!
+The algorithm in the `bill_found_the_treasure.py` file has already been developed with a basic logic that we've created. Edit the `bill_temp.py` to implement your own solution!
 
-1. Clone este repositório para o seu ambiente local.
-2. Implemente a lógica para encontrar o tesouro no arquivo `bill_temp.py`.
-3. Execute o arquivo para verificar se você encontrou o tesouro corretamente.
+1. Clone this repository to your local environment.
+2. Implement the logic to find the treasure in the `bill_temp.py` file.
+3. Run the file to check if you've found the treasure correctly.
